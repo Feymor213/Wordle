@@ -120,20 +120,16 @@ def clear_field():
     paused = False
 
 
-DATABASE = open('Database.txt', 'r').read().split(sep='\n')
+with open('Database.txt', 'r') as DATABASE:
+    DATABASE = DATABASE.read().split(sep="\n")
 KEYBOARD = open('Keys.txt', 'r').read()
 WORD = r.choice(DATABASE)
-# WORD = 'aabbc'
 active_row = 0
 active_column = 0
 labels = []
 buttons = []
 is_clearable = False
 paused = False
-# if input('Print correct word? y/n') == 'y':
-#     print(WORD)
-# else:
-#     print('OK')
 
 root = tk.Tk()
 root.resizable(width=False, height=False)
@@ -172,4 +168,3 @@ for i in range(25):
     labels[i].place(x=30 * (i % 5) + 125, y=50 * (i // 5) + 60)
 
 root.mainloop()
-# ←
